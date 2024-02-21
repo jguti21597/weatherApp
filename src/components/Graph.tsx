@@ -12,7 +12,7 @@ interface GraphProps {
 const Graph = ({data}: GraphProps) => {
   return (
     <div>
-    <ResponsiveContainer className="flex items-center justify-center" width={500} height={250}>
+    <ResponsiveContainer className="flex items-center justify-center" width={500} height={200}>
         <BarChart className='flex overflow-hidden' width={10} height={250} data={data.list.slice(1, 8).map(item => {
           return {
             ...item,
