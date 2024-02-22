@@ -30,7 +30,7 @@ export interface WeatherResponse {
     wind: {
         speed: number;
         deg: number;
-        gust: number;
+        gust?: number;
     };
     visibility: number;
     pop: number;
