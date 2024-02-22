@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center px-24 gap-y-[3rem]">
       <div className="gap-y-10 flex flex-col items-center justify-center">
-        <h1 className="text-secondary text-center text-5xl font-bold">{LOCATION}</h1>
+        <h1 className="text-secondary text-center text-4xl font-bold">{LOCATION}</h1>
         <div className="flex justify-between gap-x-10 w-full">
           <InfoCard value={parseFloat((weatherdata.main.temp - 273).toFixed(0))} unit="°C" icon={ThermometerIcon} />
           <InfoCard value={weatherdata.wind.speed} unit="mph" icon={WindIcon} />

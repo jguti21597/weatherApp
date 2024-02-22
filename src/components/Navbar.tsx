@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <div className='flex justify-between'>
             <Sheet >
-                <SheetTrigger className=" text-white hover:cursor-pointer"><MenuIcon size={45} /></SheetTrigger>
+                <SheetTrigger className=" text-white hover:cursor-pointer"><MenuIcon size={35} /></SheetTrigger>
                 <SheetContent side={"left"}>
                     <SheetHeader>
                         <SheetTitle>Navigation</SheetTitle>
