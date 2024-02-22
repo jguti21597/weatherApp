@@ -6,13 +6,14 @@ import { CloudDrizzleIcon, Navigation2, ThermometerIcon, WindIcon } from "lucide
 
 export default async function Home() {
   const LOCATION = "London"
-  const resp = await fetch(apiUrlForecast(LOCATION), { cache: "reload"})
+  const resp = await fetch(apiUrlForecast(LOCATION), { cache: "no-cache"})
   const forecasts = await resp.json() as WeatherResponse
 
 
-  const resp2 = await fetch(apiUrl("London"), { cache: "reload" })
+  const resp2 = await fetch(apiUrl("London"), { cache: "no-cache" })
   const weatherdata = await resp2.json() as WeatherData
-  console.log(weatherdata)
+
+  const angle = weatherdata.wind.deg
 
 
   return (
@@ -50,10 +51,16 @@ export default async function Home() {
               </div>
             
             </div>
-            <div className="text-white flex flex-col justify-center items-center">
-              <Navigation2 size={100} className={`rotate-[${weatherdata.wind.deg}deg]`}/>
+            {
+              angle > 0 ? 
+              <div className="text-white flex flex-col justify-center items-center">
+              <Navigation2 size={100} className={`rotate-[${angle.toString()}deg]`}/>
               <h1 className="text-xl font-bold">{weatherdata.wind.deg}°</h1>
             </div>
+              :
+              <div></div>
+            }
+            
             
 
         </div>
