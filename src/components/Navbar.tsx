@@ -1,5 +1,6 @@
 import { MenuIcon, User } from 'lucide-react'
 import React from 'react'
+import Link from 'next/link'
 import { Button, buttonVariants } from './ui/button'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet'
 
@@ -13,6 +14,9 @@ const Navbar = () => {
                         <SheetTitle>Navigation</SheetTitle>
                         <SheetDescription>
                             Other pages..
+                            <Link href="/map">
+                                <p>Map</p>
+                            </Link>
                         </SheetDescription>
                     </SheetHeader>
                 </SheetContent>

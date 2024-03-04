@@ -49,7 +49,6 @@ export default async function Home() {
                   <p className="text-xl">mph</p>
                 </div>
               </div>
-            
             </div>
             {
               angle > 0 ? 
