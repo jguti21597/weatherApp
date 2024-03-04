@@ -43,7 +43,7 @@ function Intro() {
     useState<google.maps.LatLng | null>(null);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCeEkBOH3opYxGFCa43S9ZtBQ0OIm8LQr4",
+    googleMapsApiKey: "",           
     libraries: ["places"],
   });
 
