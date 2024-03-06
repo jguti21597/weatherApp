@@ -13,7 +13,6 @@ const Navbar = () => {
                     <SheetHeader>
                         <SheetTitle>Navigation</SheetTitle>
                         <SheetDescription>
-                            Other pages..
                             <Link href="/map">
                                 <p>Map</p>
                             </Link>
