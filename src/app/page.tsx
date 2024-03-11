@@ -4,6 +4,7 @@ import { apiUrl, apiUrlForecast } from "@/lib/constants";
 import { WeatherData, WeatherResponse } from "@/lib/types";
 import {
   CloudDrizzleIcon,
+  MoveUpIcon,
   Navigation2,
   ThermometerIcon,
   WindIcon,
@@ -69,7 +70,7 @@ export default async function Home() {
           {angle > 0 ? (
             <div className="text-white flex flex-col justify-center items-center">
               <div style={{ transform: `rotate(${weatherdata.wind.deg}deg)` }}>
-                <Navigation2 size={100} />
+                <MoveUpIcon size={100} />
               </div>
               <h1 className="text-xl font-bold">{weatherdata.wind.deg}°</h1>
             </div>
