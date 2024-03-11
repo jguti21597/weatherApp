@@ -43,11 +43,11 @@ export default async function Home() {
       <div className="gap-y-10 flex flex-col items-center w-full">
         <h1 className="text-xl font-bold text-white">
           Temperature
-          <ThermometerIcon color="black" size={40} className="inline" />
+          <ThermometerIcon color="white" size={40} className="inline" />
         </h1>
         <Graph data={forecasts} />
         <h1 className="text-xl font-bold text-white">
-          Wind <WindIcon color="black" size={40} className="inline" />
+          Wind <WindIcon color="white" size={40} className="inline" />
         </h1>
         <div className="flex gap-x-[7rem] justify-between">
           <div className="text-6xl text-secondary font-bold">
