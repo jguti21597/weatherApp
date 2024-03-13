@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation';
 const SearchResults = () => {
   const [searchParams, setSearchParams] = useState({
     name: '',
-    temperature: '',
-    windSpeed: '',
-    windGust: '', 
-    windAngle: '', 
+    temperature: 0,
+    windSpeed: 0,
+    windGust: 0, 
+    windAngle: 0, 
   });
 
   useEffect(() => {
@@ -18,19 +18,20 @@ const SearchResults = () => {
       const params = new URLSearchParams(window.location.search);
       setSearchParams({
         name: params.get('name') || '',
-        temperature: params.get('temperature') || '',
-        windSpeed: params.get('windSpeed') || '',
-        windGust: params.get('windGust') || '0',
-        windAngle: params.get('windAngle') || '',
+        temperature: parseFloat(params.get('temperature') ?? '0'), 
+        windSpeed: parseFloat(params.get('windSpeed') ?? '0'), 
+        windGust: parseFloat(params.get('windGust') ?? '0'), 
+        windAngle: parseFloat(params.get('windAngle') ?? '0'),
       });
     }
   }, []);
 
   
-  const convertTemperature = (kelvin: string) => {
-    const celsius = parseFloat(kelvin) - 273.15;
+  const convertTemperature = (kelvin: number): string => {
+    const celsius = kelvin - 273.15;
     return celsius.toFixed(2);
   };
+  
 
   return (
     <div>
