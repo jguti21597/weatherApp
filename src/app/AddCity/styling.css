@@ -1,0 +1,59 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000; 
+    font-family: 'Arial', sans-serif; 
+    color: #fff; /* White text color */
+  }
+  
+  /* Style for the weather heading */
+  .weather-heading {
+    font-size: 32px; /* Large font size for the heading */
+    text-align: center;
+    margin: 20px 0; /* Add some spacing around the heading */
+  }
+  
+  /* Style for the container of the search bar to align it in the center */
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Add some spacing around the search bar */
+  }
+  
+  /* Style for the search input */
+  .search-input {
+    padding: 10px;
+    border-radius: 20px 0 0 20px; /* Rounded corners on the left side */
+    border: none; /* Remove default border */
+    outline: none; /* Remove outline on focus */
+    width: 70%; /* Adjust based on your layout preference */
+    margin-right: -1px; /* Adjust for seamless button alignment */
+  }
+  
+  /* Style for the search button */
+  .search-button {
+    padding: 10px 20px;
+    border-radius: 0 20px 20px 0; /* Rounded corners on the right side */
+    border: none; /* Remove default border */
+    background-color: #FFA500; /* Orange background color */
+    color: #fff; /* White text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline on focus */
+  }
+  
+  /* Additional global styles for other elements */
+  button:focus,
+  input:focus {
+    outline: none;
+  }
+  
+  button:hover {
+    opacity: 0.9; /* Slight transparency effect on hover */
+  }
+  
