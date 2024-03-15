@@ -6,10 +6,7 @@ import {useRouter} from 'next/navigation';
 
 interface CitySearchResult {
   name: string;
-  temperature: number;
-  windSpeed: number; // Added to interface
-  windGust: number; // Added to interface
-  windAngle: number; // Added to interface
+  
 }
 
 const Search = () => {
@@ -18,14 +15,14 @@ const Search = () => {
   const router = useRouter();
 
   const fetchCities = async (query: string) => {
-    setError(''); // Clear error message
+    setError(''); 
 
     if (!query) {
       setSearchResult([]);
       return;
     }
 
-    const apiKey = '65ad34ef51cc68f1567d459fc99efa63'; 
+    const apiKey = 'fe186c3b63f66a40b45f3549d7b3f22e'; 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`;
 
     try {
@@ -38,12 +35,10 @@ const Search = () => {
       const data = await response.json();
       
       const temperature = data.main.temp; 
-      const windSpeed = data.wind.speed; 
-      const windGust = data.wind.gust || 0; 
-      const windAngle = data.wind.deg; 
+      
 
       
-      const queryString = `?name=${encodeURIComponent(data.name)}&temperature=${encodeURIComponent(temperature)}&windSpeed=${encodeURIComponent(windSpeed)}&windGust=${encodeURIComponent(windGust)}&windAngle=${encodeURIComponent(windAngle)}`;
+      const queryString = `?name=${encodeURIComponent(data.name)}`;
   
     
       router.push(`/SearchResults${queryString}`);
@@ -61,22 +56,13 @@ const Search = () => {
   };
 
   return (
-    <body>
+    
       <div>
         <h1 className="weather-heading">Weather</h1>
         <SearchBar onSearch={handleSearch} />
         {error && <p className="error-message">{error}</p>}
-       
-        <ul>
-          {searchResult.map((result, index) => (
-            <li key={index}>
-              <strong>{result.name}</strong> - Temperature: {result.temperature}K, Wind Speed: {result.windSpeed}m/s, 
-              Wind Gust: {result.windGust}m/s, Wind Angle: {result.windAngle}°
-            </li>
-          ))}
-        </ul>
       </div>
-    </body>
+    
   );
 };
 
