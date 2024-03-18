@@ -1,36 +1,46 @@
+// Enables strict usage of client-side imports ensuring Next.js optimizes for client-side only packages
 "use client";
+
+// React imports for managing state, effect, and references
 import React, { useEffect, useMemo, useRef, useState } from "react";
+// Google Maps components and hooks for creating maps and using map services
 import {
   GoogleMap,
   useLoadScript,
   Marker,
   InfoWindow,
-  DirectionsService,
   DirectionsRenderer,
   Autocomplete as GoogleMapsAutocomplete,
 } from "@react-google-maps/api";
 
-type MapOptions = google.maps.MapOptions; //allows to import mapId/other options
+// TypeScript type for MapOptions for improved code readability and maintenance
+type MapOptions = google.maps.MapOptions; // Allows importing mapId and other options
 
+// Style object for the map container
 const mapContainerStyle = {
   width: "100%",
   height: "100%",
 };
 
+// Default center coordinates for the map
 const center = {
   lat: 51.5072,
   lng: 0.1276,
 };
 
 function Intro() {
+  // State hooks for managing origin and destination inputs
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
+  // State hook for storing directions result from Google Maps Directions API
   const [directions, setDirections] = useState<
     google.maps.DirectionsResult | undefined
   >(undefined);
 
+  // Ref for accessing the GoogleMap instance
   const mapRef = useRef<GoogleMap>(null);
 
+  // Memo hook for Google Maps options, including custom map ID
   const options = useMemo<MapOptions>(
     () => ({
       mapId: "62edfa1f0518c7bd",
@@ -38,16 +48,18 @@ function Intro() {
     []
   ) as any;
 
+  // State hooks for managing info window open state and current location
   const [open, setOpen] = useState(false);
   const [currentLocation, setCurrentLocation] =
     useState<google.maps.LatLng | null>(null);
 
+  // Hook for loading the Google Maps script
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "",
+    googleMapsApiKey: "", // Add your API key here
     libraries: ["places"],
   });
 
-  //use directions API
+  // Effect hook for fetching directions when origin and destination are set
   useEffect(() => {
     if (origin && destination) {
       const directionsService = new google.maps.DirectionsService();
@@ -66,7 +78,7 @@ function Intro() {
     }
   }, [origin, destination]);
 
-  //use geolocation API
+  // Effect hook for fetching the user's current geolocation
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -87,15 +99,17 @@ function Intro() {
     }
   }, []);
 
-  //If theres problems loading the map/API
+  // Conditional rendering for loading states and errors
   if (loadError) return <div>Error loading Google Maps API</div>;
   if (!isLoaded) return <div>Loading...</div>;
 
+  // Main component render function
   return (
     <div className="container">
       <div className="controls">
         <h1>Plan Route</h1>
         <div className="search">
+          {/* Autocomplete inputs for origin and destination */}
           <GoogleMapsAutocomplete>
             <input
               type="text"
@@ -114,6 +128,7 @@ function Intro() {
           </GoogleMapsAutocomplete>
         </div>
         <div className="button">
+          {/* Button for clearing inputs and directions */}
           <button
             id="clear"
             onClick={() => {
@@ -133,6 +148,7 @@ function Intro() {
         center={currentLocation || center}
         options={options}
       >
+        {/* Conditional rendering of directions */}
         {directions && (
           <DirectionsRenderer
             directions={directions}
@@ -145,19 +161,19 @@ function Intro() {
             }}
           />
         )}
+        {/* Marker for current location or default center */}
         {isLoaded && (
           <Marker
-            position={currentLocation || center} // Places marker at current location
+            position={currentLocation || center}
             icon={{
-              // marker is a bicycle icon
               url: "https://img.icons8.com/material/24/cycling-track.png",
-              scaledSize: new google.maps.Size(40, 40), // Use google.maps.Size
+              scaledSize: new google.maps.Size(40, 40),
             }}
             onClick={() => setOpen(true)}
           />
         )}
-
-        {open && ( //When click marker will display this message
+        {/* InfoWindow for displaying current location information */}
+        {open && (
           <InfoWindow
             position={currentLocation || center}
             onCloseClick={() => setOpen(false)}
