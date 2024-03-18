@@ -61,7 +61,7 @@ const Search = () => {
         <h1 className="weather-heading">Weather</h1>
         <SearchBar onSearch={handleSearch} />
         {error && <p className="error-message">{error}</p>}
-      </div>
+      </div>  
     
   );
 };
