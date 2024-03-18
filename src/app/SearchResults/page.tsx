@@ -62,6 +62,8 @@ const WeatherDashboard: React.FC = () => {
     return <div>Loading...</div>;
   }
 
+  //just added to avoid deploy error
+const angle = 0
   // Main component render
   return (
     <main className="flex min-h-screen flex-col items-center px-24 gap-y-[3rem]">
