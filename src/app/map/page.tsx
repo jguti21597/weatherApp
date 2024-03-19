@@ -158,7 +158,6 @@ async function Intro() {
             position={currentLocation || center}
             onCloseClick={() => setOpen(false)}
           >
-            <p>hello</p>
             <p>Your current location is </p>
             <p>Temperature: {parseFloat((weatherdata.main.temp - 273).toFixed(0))} K</p>
             {/* Display weather data */}
