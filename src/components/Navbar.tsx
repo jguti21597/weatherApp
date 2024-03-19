@@ -32,16 +32,15 @@ const Navbar = () => {
             {/* Description or content area within the Sheet, used here for navigation links */}
             <SheetDescription>
               {/* Link component from Next.js for client-side transitions between routes */}
-              <Link href="/">
-                <p>Home</p>
-              </Link>
-              <Link href="/AddCity">
-                {/* Text for the link, indicating its purpose or destination */}
-                <p>Add City</p>
-              </Link>
               <Link href="/map">
+                
                 {/* Text for the link, indicating its purpose or destination */}
                 <p>Map</p>
+              </Link>
+              <Link href="/AddCity">
+                
+                {/* Text for the link, indicating its purpose or destination */}
+                <p>Search city</p>
               </Link>
             </SheetDescription>
           </SheetHeader>
