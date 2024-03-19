@@ -33,7 +33,6 @@ const WeatherDashboard: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     const LOCATION = params.get("name") || "DefaultLocation";
     setLocation(LOCATION);
-
     // Async function to fetch weather and forecast data
     const fetchData = async () => {
       try {
@@ -61,7 +60,7 @@ const WeatherDashboard: React.FC = () => {
   if (!weatherData || !forecasts) {
     return <div>Loading...</div>;
   }
-
+console.log(weatherData)
   //just added to avoid deploy error
 const angle = 0
   // Main component render

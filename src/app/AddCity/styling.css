@@ -35,6 +35,7 @@ body {
   outline: none; /* Removes the focus outline */
   width: 70%; /* Width relative to its container */
   margin-right: -1px; /* Adjusts alignment with adjacent elements */
+  color:#000;
 }
 
 /* Styles for the search button, including padding, border-radius, and background color */

@@ -159,4 +159,11 @@ a {
   background-color: darken(pink, 10%);
 }
 
+.customtooltip{
+  background-color: white;
+  padding:3px;
+  border-radius: 5px;
+  color:black;
+}
+
 /**************************/
